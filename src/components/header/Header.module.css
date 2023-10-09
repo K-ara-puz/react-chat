@@ -1,0 +1,22 @@
+.header {
+    background-color: rgb(154, 154, 203);
+    min-height: 60px;
+    width: calc(100% - 10px);
+    padding: 5px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.header.logo {
+    height: 20px;
+    width: 130px;
+    background-color: darkcyan;
+}
+.header.user {
+    min-width: 50px;
+    min-height: 50px;
+    max-width: 50px;
+    max-height: 50px;
+    background-color: blueviolet;
+    border-radius: 50%;
+}

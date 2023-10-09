@@ -1,0 +1,7 @@
+.main {
+    background-color: darkgoldenrod;
+    width: 100%;
+}
+.main__text {
+    color: red;
+}
