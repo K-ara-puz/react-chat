@@ -8,6 +8,7 @@ function App() {
     <div className="app">
       <Header></Header>
       <div className='app__content'>
+        Hey!
         <Navbar></Navbar>
         <Main></Main>
       </div>
