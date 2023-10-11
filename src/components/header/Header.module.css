@@ -1,22 +1,27 @@
 .header {
-    background-color: rgb(154, 154, 203);
-    min-height: 60px;
+    background-color:#3F4257;
+    min-height: 70px;
     width: calc(100% - 10px);
     padding: 5px;
     display: flex;
-    justify-content: space-between;
+    justify-content: right;
     align-items: center;
 }
-.header.logo {
-    height: 20px;
-    width: 130px;
-    background-color: darkcyan;
-}
 .header.user {
-    min-width: 50px;
-    min-height: 50px;
-    max-width: 50px;
-    max-height: 50px;
-    background-color: blueviolet;
+    min-width: 40px;
+    min-height: 40px;
+    max-width: 40px;
+    max-height: 40px;
     border-radius: 50%;
+    position: relative;
+    margin: 0 18px;
+}
+.header.user img {
+    position: absolute;
+    border-radius: 50%;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
 }

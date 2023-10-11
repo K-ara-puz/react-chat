@@ -1,14 +1,18 @@
-import Post from '../posts/Post';
 import './Main.css';
+import Profile from "../profile/Profile";
+import { Routes, Route } from "react-router-dom";
+import Posts from '../posts/Posts';
+import FriendsPage from './friends/friendsPage';
 
 const Main = () => {
     return (
         <div className='main'>
-            <div className='main__text'>This is Main div</div>
-            <Post name='testPost'></Post>
-            <Post name='testPost2'></Post>
-            <Post name='testPost3'></Post>
-            <Post name='testPost4'></Post>
+            <Routes>
+              <Route path="/" element={<Profile />}></Route>
+              <Route path="/profile" element={<Profile />}></Route>
+              <Route path="/posts" element={<Posts testProp={'ttttt'}/>}></Route>
+              <Route path="/friends" element={<FriendsPage/>}></Route>
+            </Routes>
         </div>
     )
 }

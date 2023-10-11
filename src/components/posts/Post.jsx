@@ -1,7 +1,15 @@
 import './Post.css';
 const Post = (props) => {
+    console.log(props)
     return (
-        <div>{props.name}</div>
+        <div className='post'>
+            <div className='post__author'>
+                <img src={require(`../../assets/users/avatars/${props.authorImage}.jpg`)} alt="" />
+            </div>
+            <div className="post__message">
+                {props.message}
+            </div>
+        </div>
     )
 }
 

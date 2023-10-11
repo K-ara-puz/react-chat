@@ -1,9 +1,23 @@
 .app {
-  background-color: blue;
   text-align: center;
-  padding: 5px;
 }
-.app__content {
+.app__wrapper {
   display: flex;
-  height: calc(100vh - 100px);
+  min-height: calc(100vh - 100px);
+}
+.app__wrapper__content {
+  display: flex;
+  width: 90%;
+  background-color: #EDF2F6;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 40px;
+  row-gap: 30px;
+}
+.app__wrapper__friends-bar {
+  background-color: rgb(231, 231, 252);
+  width: 100px;
+  min-width: 100px;
+  min-height: 100%;
 }
