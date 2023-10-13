@@ -1,6 +1,5 @@
 import './Post.css';
 const Post = (props) => {
-    console.log(props)
     return (
         <div className='post'>
             <div className='post__author'>

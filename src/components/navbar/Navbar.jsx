@@ -18,6 +18,7 @@ const Navbar = () => {
                 <div><NavLink to="/profile">Profile</NavLink></div>
                 <NavLink to="/posts">Posts</NavLink>
                 <NavLink to="/friends">Friends</NavLink>
+                <NavLink to="/users">Find users</NavLink>
             </div>
             <div className="nav__user-data">
                 <div className="nav__user-data__photo">

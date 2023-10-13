@@ -15,8 +15,12 @@ export const postsSlice = createSlice({
   name: 'posts',
   initialState,
   reducers: {
-    addPost() {
-      console.log('ADD_POST!!))')
+    addPost(state, action) {  
+      let post = {
+        authorAvatar: 'user5',
+        message: action.payload
+      }
+      state.push(post);
     }
   },
 })
