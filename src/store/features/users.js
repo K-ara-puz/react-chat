@@ -4,7 +4,8 @@ const initialState = {
   users: [],
   currentPage: 1,
   pagesCount: 0,
-  elemsOnPage: 3
+  elemsOnPage: 3,
+  isFetching: false
 };
 
 export const usersSlice = createSlice({
@@ -49,11 +50,17 @@ export const usersSlice = createSlice({
       let password = 'root';
       axios.post(`https://social-network.samuraijs.com/api/1.0/auth/login?email=${email}&password=${password}`).then(res => {
       })
+    },
+    setIsFetching(state, action) {
+      if (action.payload === true) {
+        state.isFetching = true;
+      } else state.isFetching = false;
+      return state;
     }
   },
 });
 
 // Action creators are generated for each case reducer function
-export const { loadUsers, setPagesCount, setCurrentPage, followUser, authUser } = usersSlice.actions;
+export const { loadUsers, setPagesCount, setCurrentPage, followUser, authUser, setIsFetching } = usersSlice.actions;
 
 export default usersSlice.reducer;

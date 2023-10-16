@@ -1,0 +1,17 @@
+.preloader {
+  background-color: rgba(255, 255, 255, 0.874);
+  padding: 5px;
+  position: fixed;
+  width: 100vw;
+  height: 100vh;
+  top: 0;
+  left: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  img {
+    width: 300px;
+    height: 300px;
+    margin: 0 auto;
+  }
+}

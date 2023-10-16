@@ -2,6 +2,7 @@ import { Component } from "react";
 import axios from 'axios';
 import User from "./User";
 import './Users.scss';
+import PreloaderContainer from "../preloader/PreloaderContainer";
 
 class Users extends Component {
   componentDidMount() {
@@ -12,6 +13,7 @@ class Users extends Component {
     let queryStringWithParams = `https://social-network.samuraijs.com/api/1.0/users?count=${this.props.elemsOnPage}&page=${this.props.currentPage}`;
     let resStr = isAtFirst === true ? queryStringAtFirst : queryStringWithParams;
     if (isAtFirst) {
+      this.props.setIsFetching(true)
       axios.get(`${resStr}`, {headers: {'API-KEY': '7ad0e3af-5c84-49d8-a35d-4a430857aed1'}, withCredentials: true}).then(res => {
         let elemsCount = res.data.items.length;
         let pagesCount = elemsCount / this.props.elemsOnPage;
@@ -19,11 +21,16 @@ class Users extends Component {
         users = users.slice(0, this.props.elemsOnPage);
         this.props.loadUsers(users);
         this.props.setPagesCount(pagesCount);
+        setTimeout(() => {
+          this.props.setIsFetching(false);
+        }, 2000)
       })
     } else {
+      this.props.setIsFetching(true);
       axios.get(`${resStr}`, {headers: {'API-KEY': '7ad0e3af-5c84-49d8-a35d-4a430857aed1'}, withCredentials: true}).then(res => {
         let users = [...res.data.items];
         this.props.loadUsers(users);
+        this.props.setIsFetching(false);
       })
     }
   }
@@ -48,6 +55,7 @@ class Users extends Component {
     }
     return (
       <div className="users">
+        {this.props.isFetching === true ? <PreloaderContainer></PreloaderContainer> : null}
         <div className="users__list">{usersElements}</div>
         <div className="users__pagination">{paginationElements}</div>
       </div>

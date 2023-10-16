@@ -21,3 +21,12 @@
   min-width: 100px;
   min-height: 100%;
 }
+@media (max-width: 600px) {
+  .app__wrapper__friends-bar {
+    display: none;
+  }
+  .app__wrapper__content {
+    padding: 10px;
+    width: 100%;
+  }
+}

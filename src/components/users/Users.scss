@@ -5,7 +5,6 @@
         grid-template-columns: 30% 30% 30%;
         gap: 15px;
         justify-content: center;
-        grid-auto-rows: 1fr;
     }
     &__pagination {
         margin: 25px 0 5px;
@@ -23,9 +22,12 @@
     }
 }
 .user {
-    max-width: 200px;
+    max-width: 130px;
+    width: 100%;
+    margin: 0 auto;
     display: flex;
     flex-direction: column;
+    padding: 5px;
     &__avatar {
         flex: 0 0 50%;
         img {
@@ -41,7 +43,6 @@
         row-gap: 10px;
         &__fullname {
             overflow-wrap: break-word;
-            flex: 1 1 auto;
             height: 100%;
         }
         button {
@@ -52,6 +53,7 @@
             color: white;
             font-size: 14px;
             text-transform: uppercase;
+            cursor: pointer;
         }
         &__unfollow-btn {
             background-color: rgb(113, 19, 19) !important;
