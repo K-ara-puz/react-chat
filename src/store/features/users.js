@@ -1,19 +1,18 @@
 import { createSlice } from "@reduxjs/toolkit";
-
-const initialState = {};
+const initialState = [];
 
 export const usersSlice = createSlice({
   name: "users",
   initialState,
   reducers: {
     loadUsers(state, action) {
-      // console.log(action);
-    },
-    increment() {
-      // console.log("inccccccc!!!!!!");
-    },
+      let users = action.payload;
+      state = [...users];
+      return state;
+    }
   },
 });
+
 // Action creators are generated for each case reducer function
 export const { loadUsers, increment } = usersSlice.actions;
 

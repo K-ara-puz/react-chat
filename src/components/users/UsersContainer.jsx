@@ -1,21 +1,16 @@
 import { connect } from 'react-redux';
 import Users from './Users';
-import { increment, loadUsers } from '../../store/features/users';
+import { loadUsers } from '../../store/features/users';
 
-const mapState = (state) => {
+const mapStateToProps = (state) => {
     return {
-        posts: state.posts,
         users: state.users
     }
 }
-const mapDispatch = (dispatch) => {
+const mapDispatchToProps = (dispatch) => {
     return {
-        increment: () => dispatch(increment()),
-        loadUsers: () => {
-            // console.log("EEEEEEEEE")
-            dispatch(loadUsers())
-        }
+        loadUsers: (users) => dispatch(loadUsers(users)),
     }
 }
 
-export default connect(mapState, mapDispatch)(Users)
+export default connect(mapStateToProps, mapDispatchToProps)(Users)

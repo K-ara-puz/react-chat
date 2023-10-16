@@ -1,15 +1,13 @@
-const User = () => {
+const User = (props) => {
     return (
         <div className="user">
             <div className="user__avatar">
-                <img src="" alt="" />
+                <img src={require(`../../assets/users/avatar_template.png`)} alt="" />
             </div>
             <div className="user__info">
-                <div className="user__info">
-                    <div className="user__info__fullname">Name Name</div>
-                </div>
+                <div className="user__info__fullname">{props.userInfo.name}</div>
+                <button>Follow</button>
             </div>
-            <button>Follow</button>
         </div>
     )
 }
