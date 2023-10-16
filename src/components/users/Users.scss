@@ -7,6 +7,20 @@
         justify-content: center;
         grid-auto-rows: 1fr;
     }
+    &__pagination {
+        margin: 25px 0 5px;
+        button {
+            font-family: 'Roboto', sans-serif;
+            border: none;
+            font-weight: 300;
+            cursor: pointer;
+            background-color: transparent;
+            font-size: 20px;
+            &.active {
+                font-weight: 800;
+            }
+        }
+    }
 }
 .user {
     max-width: 200px;
@@ -36,11 +50,11 @@
             padding: 8px;
             border-radius: 5px;
             color: white;
-            font-size: 16px;
+            font-size: 14px;
             text-transform: uppercase;
-            &.active {
-                background-color: rgb(119, 35, 35);
-            }
+        }
+        &__unfollow-btn {
+            background-color: rgb(113, 19, 19) !important;
         }
     }
 }
