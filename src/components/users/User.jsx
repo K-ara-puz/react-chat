@@ -6,7 +6,7 @@ const User = (props) => {
             </div>
             <div className="user__info">
                 <div className="user__info__fullname">{props.userInfo.name}</div>
-                {props.userInfo.followed === true ? <button className="user__info__unfollow-btn" onClick={() => props.unfollowUser({userId: props.userInfo.id, action: 'unfollow'})}>Unfollow</button> : <button onClick={() => props.followUser({userId: props.userInfo.id, action: 'follow'})}>Follow</button>}
+                {props.userInfo.followed === true ? <button className="user__info__unfollow-btn" onClick={() => props.unfollowUser(props.userInfo.id)}>Unfollow</button> : <button onClick={() => props.followUser(props.userInfo.id)}>Follow</button>}
             </div>
         </div>
     )

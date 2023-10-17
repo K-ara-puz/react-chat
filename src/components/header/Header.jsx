@@ -1,10 +1,10 @@
-import s from './Header.module.css';
-const Header = () => {
+import s from './Header.module.scss';
+import HeaderAuthUser from './HeaderAuthUser';
+import HeaderLogin from './HeaderLogin';
+const Header = (props) => {
     return (
         <div className={s.header}>
-            <div className={`${s.header} ${s.user}`}>
-                <img src={require(`../../assets/users/avatars/user5.jpg`)} alt="" />
-            </div>
+            {props.userId !== null ? <HeaderAuthUser userId={props.userId}></HeaderAuthUser> : <HeaderLogin></HeaderLogin>}
         </div>
     )
 }

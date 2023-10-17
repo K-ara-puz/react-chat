@@ -1,18 +1,18 @@
 import { createSlice } from "@reduxjs/toolkit";
-import axios from "axios";
+import { usersAPI } from "../../api/api";
 const initialState = {
   users: [],
   currentPage: 1,
   pagesCount: 0,
-  elemsOnPage: 3,
-  isFetching: false
+  elemsOnPage: 4,
+  isFetching: false,
 };
 
 export const usersSlice = createSlice({
   name: "users",
   initialState,
   reducers: {
-    loadUsers(state, action) {
+    setUsers(state, action) {
       let users = action.payload;
       state.users = [...users];
       return state;
@@ -24,43 +24,55 @@ export const usersSlice = createSlice({
     },
     setCurrentPage(state, action) {
       state.currentPage = action.payload;
-    },
-    followUser(state, action) {
-      let userId = action.payload.userId;
-      let toDo = action.payload.action;
-      if (toDo === 'follow') {
-        axios.post(`https://social-network.samuraijs.com/api/1.0/follow/${userId}`, {}, {
-          headers: {
-            'API-KEY': '7ad0e3af-5c84-49d8-a35d-4a430857aed1'
-          },
-          withCredentials: true
-        });
-      } else {
-        axios.delete(`https://social-network.samuraijs.com/api/1.0/follow/${userId}`, {
-          headers: {
-            'API-KEY': '7ad0e3af-5c84-49d8-a35d-4a430857aed1'
-          },
-          withCredentials: true
-        });
-      }
-      return state
-    },
-    authUser() {
-      let email = 'mis.viktoriya@hotmail.com';
-      let password = 'root';
-      axios.post(`https://social-network.samuraijs.com/api/1.0/auth/login?email=${email}&password=${password}`).then(res => {
-      })
+      return state;
     },
     setIsFetching(state, action) {
       if (action.payload === true) {
         state.isFetching = true;
       } else state.isFetching = false;
       return state;
-    }
+    },
   },
 });
 
+export const loadUsers = () => (dispatch, getState) => {
+  dispatch(setIsFetching(true));
+  usersAPI.getUsers().then((res) => {
+    let elemsCount = res.data.items.length;
+    let pagesCount = elemsCount / getState().users.elemsOnPage;
+    let users = res.data.items.slice(0, getState().users.elemsOnPage);
+    dispatch(setUsers(users));
+    dispatch(setPagesCount(pagesCount));
+    dispatch(setIsFetching(false));
+  });
+};
+export const updateUsers = () => (dispatch, getState) => {
+  dispatch(setIsFetching(true));
+  usersAPI.getUsers(getState().users.elemsOnPage, getState().users.currentPage).then((res) => {
+    dispatch(setUsers(res.data.items));
+    dispatch(setIsFetching(false));
+  });
+}
+export const followUser = (userId) => (dispatch, getState) => {
+  usersAPI.followUser(userId).then((res) => {
+    if (res.data.resultCode === 0) {
+      dispatch(updateUsers());
+    }
+  })
+}
+export const unfollowUser = (userId) => (dispatch, getState) => {
+  usersAPI.unfollowUser(userId).then((res) => {
+    if (res.data.resultCode === 0) {
+      dispatch(updateUsers());
+    }
+  })
+}
 // Action creators are generated for each case reducer function
-export const { loadUsers, setPagesCount, setCurrentPage, followUser, authUser, setIsFetching } = usersSlice.actions;
+export const {
+  setPagesCount,
+  setCurrentPage,
+  setIsFetching,
+  setUsers,
+} = usersSlice.actions;
 
 export default usersSlice.reducer;

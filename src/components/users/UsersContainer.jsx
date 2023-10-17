@@ -1,23 +1,22 @@
 import { connect } from 'react-redux';
 import Users from './Users';
-import { loadUsers, setPagesCount, setCurrentPage, followUser, setIsFetching } from '../../store/features/users';
+import { loadUsers, setCurrentPage, followUser, unfollowUser, updateUsers } from '../../store/features/users';
 
 const mapStateToProps = (state) => {
     return {
         users: state.users.users,
         currentPage: state.users.currentPage,
         pagesCount: state.users.pagesCount,
-        elemsOnPage: state.users.elemsOnPage,
         isFetching: state.users.isFetching
     }
 }
 const mapDispatchToProps = (dispatch) => {
     return {
-        loadUsers: (users) => dispatch(loadUsers(users)),
-        setPagesCount: (pagesCount) => dispatch(setPagesCount(pagesCount)),
+        loadUsers: () => dispatch(loadUsers()),
+        updateUsers: (page) => dispatch(updateUsers(page)),
         setCurrentPage: (page) => dispatch(setCurrentPage(page)),
-        followUser: (action) => dispatch(followUser(action)),
-        setIsFetching: (action) => dispatch(setIsFetching(action))
+        followUser: (userId) => dispatch(followUser(userId)),
+        unfollowUser: (userId) => dispatch(unfollowUser(userId)),
     }
 }
 
