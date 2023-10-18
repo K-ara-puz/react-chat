@@ -1,7 +1,7 @@
 import { NavLink } from 'react-router-dom';
 import './Navbar.scss';
 
-const Navbar = () => {
+const Navbar = (props) => {
     return (
         <div className='nav'>
             <div className='nav__header'>
@@ -15,7 +15,7 @@ const Navbar = () => {
                 </div>
             </div>
             <div className="nav__links">
-                <div><NavLink to="/profile">Profile</NavLink></div>
+                <div><NavLink to={`/profile/${props.authUserId}`}>Profile</NavLink></div>
                 <NavLink to="/posts">Posts</NavLink>
                 <NavLink to="/friends">Friends</NavLink>
                 <NavLink to="/users">Find users</NavLink>

@@ -1,0 +1,11 @@
+.profile {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    column-gap: 20px;
+    &__title {}
+    &__user {
+        font-weight: 600;
+        font-size: 20px;
+    }
+}
