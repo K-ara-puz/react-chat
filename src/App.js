@@ -1,7 +1,7 @@
 import "./App.css";
 import Main from "./components/main/Main";
 import FriendsPanel from "./components/friendsPanel/FriendsPanel";
-import { useDispatch } from 'react-redux'
+import { useDispatch } from "react-redux";
 import { authUser } from "./store/features/auth";
 import HeaderContainer from "./components/header/HeaderContainer";
 

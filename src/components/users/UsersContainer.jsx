@@ -7,7 +7,7 @@ const mapStateToProps = (state) => {
         users: state.users.users,
         currentPage: state.users.currentPage,
         pagesCount: state.users.pagesCount,
-        isFetching: state.users.isFetching
+        isFetching: state.globalState.isFetching
     }
 }
 const mapDispatchToProps = (dispatch) => {

@@ -1,6 +1,9 @@
 .app {
   text-align: center;
 }
+.app button {
+  cursor: pointer;
+}
 .app__wrapper {
   display: flex;
   min-height: calc(100vh - 100px);

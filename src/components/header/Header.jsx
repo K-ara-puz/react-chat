@@ -4,7 +4,10 @@ import HeaderLogin from './HeaderLogin';
 const Header = (props) => {
     return (
         <div className={s.header}>
-            {props.userId !== null ? <HeaderAuthUser userId={props.userId}></HeaderAuthUser> : <HeaderLogin></HeaderLogin>}
+            {props.isAuth && <button onClick={props.logoutUser} className={s.header__logout}>Logout</button>}
+            {props.userId !== null
+                ? <HeaderAuthUser userId={props.userId}></HeaderAuthUser>
+                : <HeaderLogin openLoginPopup={props.openLoginPopup} isLoginPopupOpen={props.isLoginPopupOpen}></HeaderLogin>}
         </div>
     )
 }

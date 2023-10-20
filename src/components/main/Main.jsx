@@ -1,26 +1,22 @@
 import "./Main.scss";
-import { Routes, Route } from "react-router-dom";
-import Posts from "../posts/Posts";
-import FriendsPage from "./friends/friendsPage";
-import UsersContainer from "../users/UsersContainer";
-import ProfileContainer from "../profile/ProfileContainer";
 import NavbarContainer from "../navbar/NavbarContainer";
+import { connect } from "react-redux";
+import RoutesNavigator from '../routesNavigator/RoutesNavigator';
 
-const Main = () => {
+const Main = (props) => {
   return (
     <div className="main">
       <NavbarContainer></NavbarContainer>
       <div className="main__content">
-        <Routes>
-          <Route path="/" element={<ProfileContainer />}></Route>
-          <Route path="/profile/:id" element={<ProfileContainer />}></Route>
-          <Route path="/posts" element={<Posts />}></Route>
-          <Route path="/friends" element={<FriendsPage />}></Route>
-          <Route path="/users" element={<UsersContainer />}></Route>
-        </Routes>
+        <RoutesNavigator isUserAuth={props.isUserAuth} isFetching={props.isFetching}></RoutesNavigator>
       </div>
     </div>
   );
 };
-
-export default Main;
+let mapStateToProps = (state) => {
+  return {
+    isFetching: state.globalState.isFetching,
+    isUserAuth: state.auth.isAuth,
+  }
+}
+export default connect(mapStateToProps, {})(Main);

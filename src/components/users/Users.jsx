@@ -1,7 +1,6 @@
 import { Component } from "react";
 import User from "./User";
 import './Users.scss';
-import PreloaderContainer from "../preloader/PreloaderContainer";
 
 class Users extends Component {
   componentDidMount() {
@@ -20,7 +19,6 @@ class Users extends Component {
     }
     return (
       <div className="users">
-        {this.props.isFetching === true ? <PreloaderContainer></PreloaderContainer> : null}
         <div className="users__list">{usersElements}</div>
         <div className="users__pagination">{paginationElements}</div>
       </div>

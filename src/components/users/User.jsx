@@ -5,7 +5,9 @@ const User = (props) => {
         <div className="user">
             <NavLink to={`/profile/${props.userInfo.id}`}>
                 <div className="user__avatar">
-                    <img src={require(`../../assets/users/avatar_template.png`)} alt="" />
+                    {props.userInfo.photos.small
+                        ? <img src={props.userInfo.photos.small} alt=""/>
+                        : <img src={require(`../../assets/users/avatar_template.png`)} alt="" />}
                 </div>
             </NavLink>
             <div className="user__info">

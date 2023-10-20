@@ -1,11 +1,12 @@
 import { createSlice } from "@reduxjs/toolkit";
 import { usersAPI } from "../../api/api";
+import { setIsFetching } from "./globalState";
+
 const initialState = {
   users: [],
   currentPage: 1,
   pagesCount: 0,
   elemsOnPage: 4,
-  isFetching: false,
 };
 
 export const usersSlice = createSlice({
@@ -24,12 +25,6 @@ export const usersSlice = createSlice({
     },
     setCurrentPage(state, action) {
       state.currentPage = action.payload;
-      return state;
-    },
-    setIsFetching(state, action) {
-      if (action.payload === true) {
-        state.isFetching = true;
-      } else state.isFetching = false;
       return state;
     },
   },
@@ -54,7 +49,8 @@ export const updateUsers = () => (dispatch, getState) => {
   });
 }
 export const followUser = (userId) => (dispatch, getState) => {
-  usersAPI.followUser(userId).then((res) => {
+  usersAPI.followUser(userId)
+  .then((res) => {
     if (res.data.resultCode === 0) {
       dispatch(updateUsers());
     }
@@ -71,7 +67,6 @@ export const unfollowUser = (userId) => (dispatch, getState) => {
 export const {
   setPagesCount,
   setCurrentPage,
-  setIsFetching,
   setUsers,
 } = usersSlice.actions;
 
