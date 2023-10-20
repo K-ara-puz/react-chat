@@ -4,6 +4,7 @@ import { compose } from "@reduxjs/toolkit";
 import { Form, Field } from "react-final-form";
 import "./AddPostForm.scss";
 import { addPost } from "../../store/features/posts";
+import withAuth from "../hocs/withAuth";
 
 class AddPostForm extends Component {
   constructor(props) {
@@ -79,6 +80,8 @@ const mapDispatchToProps = (dispatch) => {
   };
 };
 
-export default compose(connect(mapStateToProps, mapDispatchToProps))(
-  AddPostForm
-);
+const WithAuthForm = withAuth(AddPostForm)
+
+export default compose(
+  connect(mapStateToProps, mapDispatchToProps)
+)(WithAuthForm);

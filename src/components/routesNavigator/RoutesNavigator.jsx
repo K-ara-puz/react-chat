@@ -5,6 +5,7 @@ import ProfileContainer from "../profile/ProfileContainer";
 import LoginPopupContainer from "../popups/LoginPopupContainer";
 import { Routes, Route } from "react-router-dom";
 import Preloader from "../preloader/Preloader";
+import { Navigate } from 'react-router-dom';
 
 const RoutesNavigator = (props) => {
     return (
@@ -20,5 +21,8 @@ const RoutesNavigator = (props) => {
             </Routes>
         </div>
     )
+}
+export const routeTo = (path) => {
+    return <Navigate to={path} replace/>;
 }
 export default RoutesNavigator;
