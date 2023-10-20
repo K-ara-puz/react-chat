@@ -1,0 +1,54 @@
+.add-post-form {
+    font-family: 'Roboto', sans-serif;
+    margin-bottom: 30px;
+    flex: 1 1 auto;
+    display: flex;
+    flex-direction: column;
+    row-gap: 15px;
+    &__field {
+        font-size: 18px;
+        display: flex;
+        flex-direction: column;
+        row-gap: 8px;
+        label {
+            align-self: start;
+            font-weight: 600;
+            font-size: 24px;
+            margin-bottom: 20px;
+        }
+        textarea {
+            min-height: 60px;
+            border: 1px solid gray;
+            padding: 5px 10px;
+            font-size: 20px;
+            border-radius: 5px;
+            resize: vertical;
+        }
+        &.__error {
+            input {
+                border: 2px solid red;
+            }
+        }
+        &__errorText {
+            text-align: left;
+            font-weight: 600;
+            color: red;
+        }
+    }
+    button {
+        background-color: green;
+        border: none;
+        padding: 12px;
+        border-radius: 8px;
+        color: #fff;
+        font-size: 20px;
+        text-transform: uppercase;
+        letter-spacing: 3px;
+    }
+    &__errors {
+        text-align: left;
+        font-size: 20px;
+        color: red;
+        font-weight: 600;
+    }
+}

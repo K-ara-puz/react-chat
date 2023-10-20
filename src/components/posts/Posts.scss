@@ -1,44 +1,5 @@
 .posts {
     padding: 20px 10px;
-    &__add-form {
-        font-family: 'Roboto', sans-serif;
-        display: flex;
-        flex-direction: column;
-        row-gap: 10px;
-        align-items: center;
-        margin-bottom: 30px;
-        &__title {
-            text-align: left;
-            text-transform: uppercase;
-            font-weight: 600;
-            font-size: 20px;
-            width: 100%;
-        }
-        &__input {
-            border: 1px solid rgb(207, 207, 207);
-            border-radius: 5px;
-            height: auto;
-            display: flex;
-            flex-wrap: wrap;
-            width: 100%;
-            min-height: 80px;
-        }
-        &__btn {
-            background-color: rgb(12, 150, 12);
-            border: none;
-            padding: 8px;
-            border-radius: 5px;
-            color: #fff;
-            font-size: 20px;
-            letter-spacing: 2px;
-            font-family: 'Roboto', sans-serif;
-            width: 100%;
-            max-width: 500px;
-            &:active {
-                background-color: rgb(45, 201, 45);
-            }
-        }
-    }
     &__list {
         display: flex;
         flex-direction: column-reverse;
