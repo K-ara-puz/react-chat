@@ -12,7 +12,10 @@ const RoutesNavigator = (props) => {
         <div>
             {props.isFetching === true ? <Preloader></Preloader> : null}
             <Routes>
-                <Route path="/" element={<ProfileContainer />}></Route>
+                {props.isUserAuth
+                    ? <Route path="/" element={<ProfileContainer />}></Route>
+                    : <Route path="/" element={<FriendsPage />}></Route>
+                }
                 <Route path="/profile/:id" element={<ProfileContainer />}></Route>
                 <Route path="/posts" element={<Posts />}></Route>
                 <Route path="/friends" element={<FriendsPage />}></Route>

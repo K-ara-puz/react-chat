@@ -11,7 +11,7 @@ class Users extends Component {
     this.props.updateUsers();
   }
   render() {
-    let usersElements = this.props.users.map(el => <User userInfo={el} followUser={this.props.followUser} unfollowUser={this.props.unfollowUser} key={el.id}></User>);
+    let usersElements = this.props.users.map(el => <User isUserAuth={this.props.isUserAuth} userInfo={el} followUser={this.props.followUser} unfollowUser={this.props.unfollowUser} key={el.id}></User>);
     let paginationElements = [];
     for (let i = 1; i <= this.props.pagesCount; i++) {
       let element = <button key={i} onClick={() => this.paginate(i)} className={this.props.currentPage === i ? 'active' : ''}>{i}</button>

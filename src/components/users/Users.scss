@@ -55,9 +55,15 @@
             font-size: 14px;
             text-transform: uppercase;
             cursor: pointer;
+            &:disabled {
+                background-color: gray;
+            }
         }
         &__unfollow-btn {
             background-color: rgb(113, 19, 19) !important;
+            &:disabled {
+                background-color: gray;
+            }
         }
     }
 }

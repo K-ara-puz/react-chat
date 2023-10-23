@@ -20,7 +20,7 @@ export const authSlice = createSlice({
   },
 });
 export const authUser = () => (dispatch) => {
-    authAPI.authMe().then((res) => {
+    return authAPI.authMe().then((res) => {
         if (res.data.resultCode === 0) {
           let id = res.data.data.id;
           dispatch(setAuthData({id: id, isAuth: true}));
@@ -50,6 +50,14 @@ export const logout = () => (dispatch) => {
       dispatch(setAuthData({id: null, isAuth: false}));
     }
   })
+}
+export const appInitialization = () => (dispatch) => {
+  dispatch(setIsFetching(true));
+  dispatch(authUser()).then(() => {
+    setTimeout(() => {
+      dispatch(setIsFetching(false))
+    }, 1500)
+  })  
 }
 // Action creators are generated for each case reducer function
 export const { setAuthData } = authSlice.actions;

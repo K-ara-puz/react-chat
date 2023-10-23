@@ -2,12 +2,12 @@ import "./App.css";
 import Main from "./components/main/Main";
 import FriendsPanel from "./components/friendsPanel/FriendsPanel";
 import { useDispatch } from "react-redux";
-import { authUser } from "./store/features/auth";
+import { appInitialization } from "./store/features/auth";
 import HeaderContainer from "./components/header/HeaderContainer";
 
 function App() {
   const dispatch = useDispatch();
-  dispatch(authUser());
+  dispatch(appInitialization());
   return (
     <div className="app">
       <HeaderContainer></HeaderContainer>

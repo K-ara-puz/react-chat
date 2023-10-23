@@ -1,6 +1,7 @@
 import { connect } from 'react-redux';
 import Profile from './Profile';
 import { Component } from 'react';
+import WithAuth from '../hocs/withAuth';
 
 class ProfileContainer extends Component {
     render() {
@@ -14,4 +15,6 @@ const mapStateToProps = (state) => {
     }
 }
 
-export default connect(mapStateToProps, {})(ProfileContainer)
+const withAuthProfileContainer = WithAuth(ProfileContainer);
+
+export default connect(mapStateToProps, {})(withAuthProfileContainer)

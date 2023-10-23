@@ -12,7 +12,9 @@ const User = (props) => {
             </NavLink>
             <div className="user__info">
                 <div className="user__info__fullname">{props.userInfo.name}</div>
-                {props.userInfo.followed === true ? <button className="user__info__unfollow-btn" onClick={() => props.unfollowUser(props.userInfo.id)}>Unfollow</button> : <button onClick={() => props.followUser(props.userInfo.id)}>Follow</button>}
+                    {props.userInfo.followed === true
+                        ? <button disabled={!props.isUserAuth ? true : false} className="user__info__unfollow-btn" onClick={() => props.unfollowUser(props.userInfo.id)}>Unfollow</button>
+                        : <button disabled={!props.isUserAuth ? true : false} onClick={() => props.followUser(props.userInfo.id)}>Follow</button>}
             </div>
         </div>
     )
